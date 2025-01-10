@@ -1,0 +1,21 @@
+import pandas as pd
+
+data = {
+    'termino': ['Estadistica', 'dato', 'Tema de conjuntos', 'Axiomas', 'probabilidad', 'probabilidad'],
+    '¿Que se?': ['es la rama matematica que nos permite saber si algo puede llegar a pasar', 'es el conjunto de informacion', 'Son familias que pertenecen a mas familias', 'conjunto de valores predominantes', 'Capacidad de de ver mas haya para calcular el que pasara', 'cosas que ocurren'],
+    '¿que deseo aprender?': ['Poder analizar de manera correcta los datos', 'saber como utilizar los datos completamente a mi favor', 'entender mas el teorema de los conjuntos', 'entender realmente que es son los axiomas', 'saber analizar las probabilidades para una mejor toma de desision', 'Poder predecir eventos para tener una mejor preparacion'],
+    '¿que aprendí?': [""] * 6
+}
+
+tabla = pd.DataFrame(data)
+
+# Ask the user if they want to fill in the "¿que aprendí?" column
+fill_aprendi = input("¿Desea llenar la columna '¿que aprendí?' ahora? (si/no): ").lower()
+
+if fill_aprendi == "si":
+    for index in range(len(tabla)):
+        # Prompt the user for each row
+        aprendizaje = input(f"¿Qué aprendió sobre '{tabla['termino'][index]}'? ")
+        tabla.loc[index, '¿que aprendí?'] = aprendizaje
+
+print(tabla)
